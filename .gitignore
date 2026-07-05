@@ -1,0 +1,24 @@
+# Competition images — NOT redistributable (DAC FindIT 2026 rules)
+data/
+dataset/
+images/
+*.jpg
+*.jpeg
+*.png
+
+# Trained fold weights (~108 MB each) — not redistributable, too large
+model/
+*.pth
+*.pt
+*.ckpt
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment / secrets
+.env
+.env.*
