@@ -124,6 +124,11 @@ on the rare high-entropy misses, it drifts to ambiguous regions — exactly the 
 
 ---
 
+## Finalist
+
+![The team at the DAC FindIT 2026 closing — Universitas Gadjah Mada](docs/finalist-team.jpg)
+> At the FindIT 2026 closing ceremony, Faculty of Engineering, Universitas Gadjah Mada.
+
 ## Collaborators
 
 Team competition — built together with:
