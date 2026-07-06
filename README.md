@@ -87,6 +87,11 @@ pip install torch torchvision timm albumentations opencv-python scikit-learn mat
 jupyter notebook notebook/findit_antispoofing.ipynb
 ```
 
+## Documentation
+
+A cover preview of the finalist slide deck is in [`docs/`](./docs) (`slides-cover.png`). The written
+report (`.docx`) and the poster are not included here.
+
 ## Screenshots
 
 <!-- TODO: add screenshots -->
