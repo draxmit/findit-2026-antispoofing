@@ -5,6 +5,10 @@ images/
 *.jpg
 *.jpeg
 *.png
+# ...but DO keep the curated preview/result images in docs/
+!docs/*.jpg
+!docs/*.jpeg
+!docs/*.png
 
 # Trained fold weights (~108 MB each) — not redistributable, too large
 model/
