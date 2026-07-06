@@ -5,8 +5,8 @@
 > a live pitch.
 
 **Competition:** DAC — FindIT 2026 (Computer Vision track)
-**Result:** 🏅 **Top-15 finalist / 339 teams** (Kaggle qualifier → finalist report + pitch)
-**Type:** Image classification — biometric anti-spoofing
+**Result:** 🏅 **Top-15 finalist / 339 teams** — validation **macro-F1 0.9634 / accuracy 0.9636**
+**Type:** Image classification — biometric anti-spoofing (1,652 train / 404 test images)
 
 ---
 
@@ -46,6 +46,7 @@ flowchart TD
 ```
 
 ### Key decisions
+- **CLIP-based label cleaning** — a confident-learning stage (Cleanlab + CLIP ViT-B/16 features combined into a composite anomaly score) flagged **717 of 1,652** images as potentially mislabeled before training.
 - **Augmentation from evidence, not habit.** EDA showed `fake_screen`/`fake_printed` carry visible moiré
   and compression artifacts while `fake_mannequin` has wide pose/lighting variance — motivating
   `RandomResizedCrop(scale=0.80–1.0)` and `ShiftScaleRotate` over static resizing (which overfit to framing).
@@ -62,7 +63,7 @@ flowchart TD
 
 ## Tech stack
 
-`Python` · `PyTorch` · `timm (ConvNeXt-V2)` · `Albumentations` · `scikit-learn` · `OpenCV` · `Grad-CAM` · trained on an NVIDIA RTX 4060 (laptop)
+`Python` · `PyTorch` · `timm (ConvNeXt-V2 + GeM)` · `CLIP (ViT-B/16)` · `Cleanlab` · `Albumentations` · `scikit-learn` · `Grad-CAM` · NVIDIA RTX 4060 (laptop)
 
 ---
 
@@ -89,8 +90,8 @@ jupyter notebook notebook/findit_antispoofing.ipynb
 
 ## Documentation
 
-A cover preview of the finalist slide deck is in [`docs/`](./docs) (`slides-cover.png`). The written
-report (`.docx`) and the poster are not included here.
+Cover previews of the finalist **slide deck** and **written report** are in [`docs/`](./docs)
+(`slides-cover.png`, `report-cover.png`). The poster is not included.
 
 ## Screenshots
 
