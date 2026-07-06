@@ -5,7 +5,7 @@
 > a live pitch.
 
 **Competition:** DAC — FindIT 2026 (Computer Vision track)
-**Result:** 🏅 **Top-15 finalist / 339 teams** — validation **macro-F1 0.9634 / accuracy 0.9636**
+**Result:** 🏅 **Top-15 finalist / 339 teams** — 5-fold CV **OOF macro-F1 0.9767 / accuracy 0.9758**
 **Type:** Image classification — biometric anti-spoofing (1,652 train / 404 test images)
 
 ---
@@ -93,13 +93,34 @@ jupyter notebook notebook/findit_antispoofing.ipynb
 Cover previews of the finalist **slide deck** and **written report** are in [`docs/`](./docs)
 (`slides-cover.png`, `report-cover.png`). The poster is not included.
 
-## Screenshots
+## Results
 
-<!-- TODO: add screenshots -->
-- `TODO:` finalist announcement (Top-15 / 339)
-- `TODO:` Grad-CAM montage (model attending to spoof artifacts)
-- `TODO:` confusion matrix / per-class F1
-- `TODO:` exact validation macro-F1 / accuracy from the final run
+**5-fold cross-validation (out-of-fold):**
+
+| Fold | OOF Macro-F1 | n |
+|---|---|---|
+| 0 | 0.9730 | 331 |
+| 1 | 0.9931 | 331 |
+| 2 | 0.9795 | 330 |
+| 3 | 0.9760 | 330 |
+| 4 | 0.9622 | 330 |
+| **Aggregated** | **0.9767** | **1,652** |
+
+Aggregated OOF **accuracy 0.9758** · CV F1 **0.9767 ± 0.0100** · Wilson 95% CI on accuracy **[0.9672, 0.9822]**
+· ECE **0.0805** · final ensemble + TTA score **0.9865**.
+
+### Confusion matrix
+Per-class recall runs **0.96–1.00**; the only meaningful confusion is `unknown` ↔ `mannequin` — unsurprising,
+since sculpted/mannequin faces and "unknown" attacks are structurally similar.
+
+![OOF confusion matrix](docs/confusion-matrix.png)
+
+### Grad-CAM — is the model looking at the right things?
+On confident, correct calls, attention sits on the tell-tale spoof artifacts (print texture, screen bezels);
+on the rare high-entropy misses, it drifts to ambiguous regions — exactly the failure mode you'd expect.
+
+![Grad-CAM — correct, high-confidence](docs/gradcam-correct.png)
+![Grad-CAM — wrong, high-entropy](docs/gradcam-wrong.png)
 
 ---
 
