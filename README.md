@@ -107,7 +107,7 @@ Cover previews of the finalist **slide deck** and **written report** are in [`do
 | **Aggregated** | **0.9767** | **1,652** |
 
 Aggregated OOF **accuracy 0.9758** · CV F1 **0.9767 ± 0.0100** · Wilson 95% CI on accuracy **[0.9672, 0.9822]**
-· ECE **0.0805** · final ensemble + TTA score **0.9865**.
+· ECE **0.0805** · final ensemble + TTA **validation score 0.9865**.
 
 ### Confusion matrix
 Per-class recall runs **0.96–1.00**; the only meaningful confusion is `unknown` ↔ `mannequin` — unsurprising,
